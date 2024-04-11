@@ -4,7 +4,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 export const apiHousesSlice = createApi({
     reducerPath: "housesApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://locahost:3000',
+        baseUrl: 'http://localhost:3000',
         prepareHeaders: (headers, {getState}) => {
             const token = getState().auth.token
             if(token){
@@ -18,8 +18,8 @@ export const apiHousesSlice = createApi({
             query: () => '/house',
             providesTags: ['Houses']
         }),
-        getHouseByCode: builder.query({
-            query: (code) => '/house/' + code,
+        getHouseById: builder.query({
+            query: (id) => '/house/' + id,
             providesTags: ['House']
         }),
         createHouse: builder.mutation({
@@ -31,8 +31,8 @@ export const apiHousesSlice = createApi({
             invalidatesTags: ["Houses"] // Se ejecuta cuando hay un cambio en la BD
         }),
         deleteHouse: builder.mutation({
-            query: (code) => ({
-                url: `/house/${code}`,
+            query: (id) => ({
+                url: `/house/${id}`,
                 method: "DELETE",
             }),
             invalidatesTags: ["Houses"]
@@ -41,7 +41,7 @@ export const apiHousesSlice = createApi({
 })
 
 export const { useGetHousesQuery, 
-    useGetHouseByCodeQuery, 
+    useGetHouseByIdQuery, 
     useCreateHouseMutation, 
     useDeleteHouseMutation,
 } = apiHousesSlice

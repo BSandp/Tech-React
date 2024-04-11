@@ -12,14 +12,27 @@ export default function HouseFormCreate(){
     const [file, setFile] = useState(null);
   
     const handleSubmit = async (e) => {
-        e.preventDefault();        
-        const newHouse = {
-            address: e.target.address.value,
-            department: e.target.department.value.split("-")[1],
-            city: e.target.city.value,
-            //TODO: Implement other properties
-        }
+        e.preventDefault();      
+
+            const newHouse = {
+                address: e.target.address.value,
+                city: e.target.city.value,
+                state: e.target.state.value.split("-")[1],
+                size: e.target.size.value,
+                type: e.target.type.value,
+                zip_code: e.target.zip_code.value,
+                rooms: e.target.rooms.value,
+                bathrooms: e.target.bathrooms.value,       
+                parking: e.target.parking.value,
+                price: e.target.price.value,
+                code: e.target.code.value,
+    
+                //TODO: Implement other properties
+            }
+     
+       
         try {
+            console.log(newHouse)
             const response = await createHouse(newHouse)          
             if(response.data.status == "error"){
                 Swal.fire({
@@ -28,6 +41,7 @@ export default function HouseFormCreate(){
                     title: "La casa no pudo ser registrado, por favor verifique los datos",
                     showConfirmButton: false,
                     timer: 1500
+                    
                   })
             }else{
                 if(file){
@@ -38,11 +52,11 @@ export default function HouseFormCreate(){
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Usuario Creado Correctamente",
+                    title: "Casa creada correctamente",
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    navigate('/user') // Hacemos la redireccion
+                    navigate('/house') // Hacemos la redireccion
                 });
             }
         } catch (error) {
@@ -54,6 +68,6 @@ export default function HouseFormCreate(){
     return (
         <HouseForm props={{handleSubmit: handleSubmit, 
                         handleChangeAvatar: null, 
-                        user:null}} />
+                        house:null}} />
     );
 }

@@ -17,6 +17,7 @@ import Chat from "./components/chat/Chat";
 import { useEffect } from "react";
 import changePassword from "./components/auth/changePassword";
 import Home from "./components/Home";
+import HouseList from "./components/house/houseList";
 
 function App() {
   
@@ -46,6 +47,7 @@ function App() {
 
           {/* Rutas casas */}
           <Route path="/create-house" element={<PrivateRoute Component={HouseFormCreate} />} />
+          <Route path="/house" element={<PrivateRoute Component={HouseList} />} />
 
           {/* rutas publicas */}
           <Route path="/login" element={<Login />} />

@@ -34,12 +34,83 @@ export default function HouseForm({props}){
             <form onSubmit={handleSubmit} className="shadow-md rounded pt-6 pb-10 mb-4 px-10">
                 <div className="mb-4">
                     <label className="block text-gray-700 font-bold mb-2">Addres</label>
-                    <input type="text" required name="address" placeholder="Address" defaultValue={house?.address}
+                    <input type="text" required 
+                    name="address" 
+                    placeholder="Address" 
+                    defaultValue={house?.address}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Size</label>
+                    <input type="number" required 
+                    name="size" 
+                    placeholder="Size" 
+                    defaultValue={house?.size}
                             className="shadow appearance-none border rounded w-full focus:shadow-outline" />
                 </div>
                 <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Type</label>
+                    <input type="text" required 
+                    name="type" 
+                    placeholder="type" 
+                    defaultValue={house?.type}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Zip_code</label>
+                    <input type="text" required 
+                    name="zip_code" 
+                    placeholder="Zip_code" 
+                    defaultValue={house?.zip_code}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Code</label>
+                    <input type="text" required 
+                    name="code" 
+                    placeholder="code" 
+                    defaultValue={house?.code}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Rooms</label>
+                    <input type="number" required 
+                    name="rooms" 
+                    placeholder="Rooms" 
+                    defaultValue={house?.rooms}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Bathrooms</label>
+                    <input type="number" required 
+                    name="bathrooms" 
+                    placeholder="Bathrooms" 
+                    defaultValue={house?.bathrooms}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Price</label>
+                    <input type="number" required 
+                    name="price" 
+                    placeholder="Price" 
+                    defaultValue={house?.price}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Parking</label>
+                    <input type="text" required 
+                    name="parking" 
+                    placeholder="Parking" 
+                    defaultValue={house?.parking}
+                            className="shadow appearance-none border rounded w-full focus:shadow-outline" />
+                </div>
+                
+
+                <div className="mb-4">
                     <label className="block text-gray-700 font-bold mb-2">Department</label>
-                    <select name="department" required   
+                    <select name="state" required   
                             onChange={handleChangeDepartment}                         
                             defaultValue={selectedDepartment} // Seteando a Bogota como predeterminado
                             className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
